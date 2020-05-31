@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Home page </title>
+        <link rel="stylesheet" href="../static/main.css">
+    </head>
+    <body>
+        <p id="greeting" style="font-size: 40px; font-family: Verdana, Geneva, Tahoma, sans-serif; padding-top: 30px;"></p>
+        <p id="quote" style="font-size: 20px; font-family: Verdana, Geneva, Tahoma, sans-serif; "></p>
+        <div id="quote">
+            <script>
+                var today = new Date();
+                var hr = today.getHours();
+                if(hr>0 && hr < 12){
+                    document.getElementById("greeting").innerHTML = "Good Morning";
+                }
+                if(hr>=12 && hr <= 4){
+                    document.getElementById("greeting").innerHTML = "Good Afternoon";
+                }
+                if(hr>4 && hr <= 7){
+                    document.getElementById("greeting").innerHTML = "Good Evening";
+                }else{
+                    document.getElementById("greeting").innerHTML = "Good Night";
+                }
+                var text = ["It takes a lot of courage to push through hard times", "Stay Organized", "Ensure the right nutrition", "Recognize triggers for difficult behavior and stay calm", "Use humor to your advantage", "Never giveup. Good things are coming your way"];
+                var counter = 0;
+                var elem = document.getElementById("changeText");
+                document.getElementById("quote").innerHTML = text[counter];
+                window.setInterval(function() {
+                    counter ++;
+                    if(counter == text.length){
+                        counter = 0;
+                    }
+                    document.getElementById("quote").innerHTML = text[counter];
+                }, 5000);
+            </script>
+        </div>
+    </body>
+</html>
